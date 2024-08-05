@@ -1,5 +1,6 @@
-import "./App.css";
-import ExpensesList from "./components/Expenses/ExpensesList";
+import "./App.css"
+import ExpensesList from "./components/Expenses/ExpensesList"
+import NewExpense from "./components/NewExpense/NewExpense"
 
 const App = () => {
   const expenses = [
@@ -22,12 +23,13 @@ const App = () => {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-  ];
+  ]
   return (
     <>
+      <NewExpense />
       <ExpensesList expenses={expenses} />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

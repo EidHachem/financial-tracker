@@ -1,8 +1,8 @@
-import React from "react";
-import ExpenseItem from "./ExpenseItem";
+import React from "react"
+import ExpenseItem from "./ExpenseItem"
 
 import './ExpensesList.css'
-import Card from "../UI/Card";
+import Card from "../UI/Card"
 
 const ExpensesList = ({ expenses }) => {
   return (
@@ -15,10 +15,10 @@ const ExpensesList = ({ expenses }) => {
             price={expense.amount}
             date={expense.date}
           />
-        );
+        )
       })}
     </Card>
-  );
-};
+  )
+}
 
-export default ExpensesList;
+export default ExpensesList
