@@ -1,4 +1,5 @@
 import React from "react";
+import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
 const ExpenseItem = (props) => {
@@ -6,7 +7,7 @@ const ExpenseItem = (props) => {
 
   return (
     <div className="expense-item">
-      <div>{date.toISOString()}</div>
+      <ExpenseDate date={date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
         <div className="expense-item__price">$ {price}</div>
