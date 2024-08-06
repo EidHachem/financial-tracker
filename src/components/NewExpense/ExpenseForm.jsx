@@ -45,6 +45,10 @@ const ExpenseForm = ({ onSaveExpenseData, onShowForm }) => {
       amount: "",
       date: "",
     })
+    closeFormHandler()
+  }
+
+  const closeFormHandler = () => {
     onShowForm(false)
   }
 
@@ -81,6 +85,7 @@ const ExpenseForm = ({ onSaveExpenseData, onShowForm }) => {
         </div>
       </div>
       <div className="new-expense__actions">
+      <button type="button" onClick={closeFormHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
