@@ -1,33 +1,42 @@
 import React, { useState } from "react"
 import ExpenseItem from "./ExpenseItem"
 
-import './ExpensesList.css'
+import "./ExpensesList.css"
 import Card from "../UI/Card"
 import ExpensesFilter from "./ExpensesFilter"
 
-const ExpensesList = ({ expenses, onYearChange }) => {
-
-  const [filteredYear, setFilteredYear] = useState('2024')
+const ExpensesList = ({ expenses }) => {
+  const [filteredYear, setFilteredYear] = useState("2024")
 
   const selectYearHandler = (selectedYear) => {
     setFilteredYear(selectedYear)
-    onYearChange(selectedYear)
   }
+
+  const filteredExpenses = expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear
+  })
   return (
     <>
-    <Card className="expenses">
-    <ExpensesFilter onYearSelect={selectYearHandler} selectedYear={filteredYear} />
-      {expenses.map((expense) => {
-        return (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            price={expense.amount}
-            date={expense.date}
-          />
-        )
-      })}
-    </Card>
+      <Card className="expenses">
+        <ExpensesFilter
+          onYearSelect={selectYearHandler}
+          selectedYear={filteredYear}
+        />
+        {filteredExpenses.length > 0 ? (
+          filteredExpenses.map((expense) => {
+            return (
+              <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                price={expense.amount}
+                date={expense.date}
+              />
+            )
+          })
+        ) : (
+          <span className="empty-list">No expense added in {filteredYear}</span>
+        )}
+      </Card>
     </>
   )
 }
