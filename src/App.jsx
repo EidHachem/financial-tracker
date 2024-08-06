@@ -29,10 +29,14 @@ const App = () => {
   const addExpenseHandler = expense => {
     console.log(expense)
   }
+
+  const filterByYear = (year) => {
+    console.log(year)
+  }
   return (
     <>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpensesList expenses={expenses} />
+      <ExpensesList expenses={expenses} onYearChange={filterByYear} />
     </>
   )
 }
